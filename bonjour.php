@@ -9,7 +9,7 @@
 <body>
     <!-- On utilise la ****SUPER variable***** $_FILES  qui affiche les données du fichier envoyé par le formulaire -->
     <?= var_dump($_FILES); ?>
-    <!-- Pour afficher la valeur d'un clé associée au fichier, on ouvre le premier tableau (crochet) et à la suite l'autre tableau à l'intérieur  -->
+    <!-- Pour afficher la valeur d'une clé associée au fichier, on ouvre le premier tableau (crochet) et à la suite l'autre tableau à l'intérieur  -->
     <?= $_FILES['monfichier']['name'] ?>
     <!-- On utilise 'move_uploaded_file' pour récupérer le fichier enregistré de manière temporaire et l'enregistrer dans un dossier (ici= /uploads) / on note le chemin du fichier temporaire et sa destination (jusqu'à la virgule)
     'uploads/' . basename($_FILES['monfichier']['name']) == ceci est le nom du fichier -->

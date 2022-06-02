@@ -32,7 +32,7 @@ $users = [
             if(!empty($_POST["login"]) && !empty($_POST["mdp"])) {
                 // on cherche l'utilisateur qui correspond à l'entrée utilisateur
                 foreach ($users as $user) {
-                    // On vérifie que le nom d'utilisateur et le bon mdp correspondent au entrées dans le formulaire
+                    // On vérifie que le nom d'utilisateur et le bon mdp correspondent aux entrées dans le formulaire
                     if ($user['name'] === $_POST["login"] && $user['password'] === $_POST["mdp"]) {
                         // On crée une variable qui correspond à l'utilisateur qui se connecte ( but = que le site garde ses infos comme nom, âge, mail etc)
                         $_SESSION['loggedUser'] = ['nom' => $user['name']];

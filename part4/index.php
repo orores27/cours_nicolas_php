@@ -5,7 +5,7 @@ try
     // $db = base de données ( c'est un objet de la classe PDO ) 
     // PDO est une classe toute faite de PHP qui sert à gérer les bases de données
 	$db = new PDO(
-        //  on donnele nom de l'hôte, de la base
+        //  on donne le nom de l'hôte, de la base
         'mysql:host=localhost;dbname=recipes;charset=utf8',
         'root',
         'root'
@@ -28,7 +28,7 @@ try
     $recipesStatement = $db->prepare($sqlQuery);
     // on exécute la requête en entrant les paramètres de la requête : **author** correspond au mail user et **is_enabled** correspond à true ou false
     $recipesStatement ->execute([
-        'author' => 'gaga@didi.org',
+        'author' => 'nicolas@boss.com',
         'is_enabled' => true,
     ]);
     // On récupère les données
@@ -60,5 +60,16 @@ catch (Exception $e)
         <p>Votre adresse mail est : <?= $user['email'] ?></p>
         <!-- on ferme la boucle -->
     <?php endforeach ?>
+
+
+        <form action="update.php" method='POST'>
+        <label for="name">Nom</label>    
+        <input type="text" id="name" name="name" placeholder="Votre nom" value="<?= $user['name'] ?>">
+        <label for="email">Votre adresse email</label>
+        <input type="email" id="email" name="email" placeholder="Votre adresse email" value="<?= $user['email'] ?>" >
+        <button type="submit">Soumettre</button>
+        </form>
+
+
 </body>
 </html>
