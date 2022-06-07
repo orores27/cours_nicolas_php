@@ -5,32 +5,14 @@
         'root',
         'root'
     );
-        $sqlQuery = 
-        'UPDATE users
-        SET email = ' . $_POST['email'] . ',
-        name = ' . $_POST['name'] . ',
-        WHERE id = 2;'
-        
-        $usersStatement = $db->prepare($sqlQuery);
-        $usersStatement->execute();
-        $users = $usersStatement->fetchAll();
-
-        // UPDATE client
-        //     SET rue = '49 Rue Ameline',
-        //     ville = 'Saint-Eustache-la-Forêt',
-        //     code_postal = '76210'
-        //     WHERE id = 2
-
-          //METHODE 2
-    
-    // $sqlQuery = 'UPDATE users SET email = $_POST['email'], name = $_POST['name'], WHERE id = 2;';
-    // // 
-    // $usersStatement = $db->prepare($sqlQuery);
-    // // 
-    // $usersStatement ->execute([
-    //     'email' => 'sabah@perdu.com',
-    //     'id' => 2,
-    // ]);
-    // // 
-    // $users = $usersStatement->fetchAll();
+    $sqlQuery = 'UPDATE users SET email = :email, name = :name WHERE id = 2';
+    $Statement = $db->prepare($sqlQuery);
+    $Statement ->execute([
+        'email' => $_POST['email'],
+        'name' => $_POST['name'],
+    ]);
+    $Statement->fetchAll();
+    // pour rediriger sur la page index ( quand on met seulement le ***/*** il va cherche la page index. php ou index.html si elles existent */)
+    header('Location: /');
        
+    // $sqlQuery = 'INSERT INTO recipes(title, recipe, author, is_enabled) value (:title, :recipes, :author, :is_enabled)'; 
